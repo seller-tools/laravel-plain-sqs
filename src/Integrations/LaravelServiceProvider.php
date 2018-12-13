@@ -2,7 +2,7 @@
 
 namespace Dusterio\PlainSqs\Integrations;
 
-use Dusterio\PlainSqs\Sqs\Connector;
+use Dusterio\PlainSqs\Sqs\SqsPlainConnector;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Queue;
 use Illuminate\Queue\Events\JobProcessed;
@@ -36,7 +36,7 @@ class LaravelServiceProvider extends ServiceProvider
     {
          $this->app->booted(function () {
             $this->app['queue']->extend('sqs-plain', function () {
-                return new Connector();
+                return new SqsPlainConnector();
             });
         });
     }

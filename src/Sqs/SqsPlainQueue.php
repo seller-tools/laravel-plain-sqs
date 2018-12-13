@@ -11,7 +11,7 @@ use Illuminate\Queue\Jobs\SqsJob;
  * Class CustomSqsQueue
  * @package App\Services
  */
-class Queue extends SqsQueue
+class SqsPlainQueue extends SqsQueue
 {
     /**
      * Create a payload string from the given job and data.

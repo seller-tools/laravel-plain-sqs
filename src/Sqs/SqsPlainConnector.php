@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Queue\Connectors\SqsConnector;
 use Illuminate\Queue\Jobs\SqsJob;
 
-class Connector extends SqsConnector
+class SqsPlainConnector extends SqsConnector
 {
     /**
      * Establish a queue connection.
@@ -23,7 +23,7 @@ class Connector extends SqsConnector
             $config['credentials'] = Arr::only($config, ['key', 'secret']);
         }
 
-        $queue = new Queue(
+        $queue = new SqsPlainQueue(
             new SqsClient($config), $config['queue'], Arr::get($config, 'prefix', '')
         );
         

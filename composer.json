@@ -1,5 +1,5 @@
 {
-    "name": "dusterio/laravel-plain-sqs",
+    "name": "seller-tools/laravel-plain-sqs",
     "type": "library",
     "description": "Custom SQS connector for Laravel that supports custom format JSON",
     "keywords": ["php","laravel","lumen","sqs","aws"],
@@ -10,6 +10,10 @@
             "name": "Denis Mysenko",
             "email": "denis@mysenko.com",
             "homepage": "https://www.mysenko.com"
+        },
+        {
+            "name": "Klemen Lokar",
+            "email": "klemen.lokar93@gmail.com"
         }
     ],
     "require": {
