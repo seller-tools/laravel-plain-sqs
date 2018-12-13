@@ -89,7 +89,8 @@ class SqsPlainQueue extends SqsQueue
     {
         if (! is_array($payload)) $payload = json_decode($payload, true);
 
-        $body = json_decode($payload['Body'], true);
+        $arrayBody = json_decode($payload['Body'], true);
+        $body = $arrayBody ? $arrayBody : [$payload['Body']];
 
         $body = [
             'job' => $class . '@handle',
