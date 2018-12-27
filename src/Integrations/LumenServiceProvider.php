@@ -4,7 +4,6 @@ namespace Dusterio\PlainSqs\Integrations;
 
 use Dusterio\PlainSqs\Sqs\SqsPlainConnector;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Queue;
 use Illuminate\Queue\Events\JobProcessed;
 
 /**
@@ -20,7 +19,7 @@ class LumenServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Queue::after(function (JobProcessed $event) {
+        $this->app['queue']->after(function (JobProcessed $event) {
             $event->job->delete();
         });
     }
